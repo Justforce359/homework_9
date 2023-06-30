@@ -30,7 +30,7 @@ public class JUnitDataProviderTest extends TestBase {
 
     }
     @ParameterizedTest(name = "ввести в поле поиска {0}, выполнить поиск")
-    @DisplayName("Проверка ")
+    @DisplayName("Проверка")
     @CsvSource(value = {
             "артур дойл затерянный мир, 872576, Автор: Дойл Артур Конан",
             "нил гейман история с кладбищем, 462042, Автор: Гейман Нил",
@@ -52,7 +52,7 @@ public class JUnitDataProviderTest extends TestBase {
                 Arguments.of(564887, "Татьяна Толстая: Кысь", "Аннотация к книге \"Кысь\"", false)
         );
     }
-    @ParameterizedTest
+    @ParameterizedTest(name = "Проверить, что id{0} книги соответствует названию{1}, аннотации{2}, наличие названия на английском языке{3}")
     @MethodSource()
     void checkBookDetailsTest(int bookId, String bookTitle, String annotation, boolean hasEnglishTitle) {
         open(baseUrl + "books/" + bookId);
